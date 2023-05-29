@@ -59,7 +59,7 @@ class LinearRegression:
         # TODO: Limit iters if diff too low or whatever
         for i in range(n_iters):
             db, dw = grad_fn(X, y, w, b)
-            w -= lr * dw
+            w = w - (lr * dw) # TODO: broadcast fuckery, no -=, Workout the why
             b -= lr * db
             J_hist.append(cost_fn(X, y, w, b))
             if (i % (n_iters / 10) == 0):
