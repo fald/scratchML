@@ -44,7 +44,7 @@ class LinearRegression:
         m = X.shape[0]
         err = np.transpose(self.predict(X, w, b) - y) # 1xm
         dj_db = np.sum(err) / m
-        dj_dw = np.dot(np.sum(err), X) / m
+        dj_dw = np.dot(err, X) / m
         return dj_db, dj_dw
             
     def gradient_descent(self, X, y, w, b, lr=ALPHA, n_iters=MAX_ITERS,
