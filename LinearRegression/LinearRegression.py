@@ -64,5 +64,5 @@ class LinearRegression:
             J_hist.append(cost_fn(X, y, w, b))
             if (i % (n_iters / 10) == 0):
                 print(f"Iteration {i:4d}:\n\tCost:\t{J_hist[-1]}")
-            return w, b, J_hist
+        return w, b, J_hist
     
