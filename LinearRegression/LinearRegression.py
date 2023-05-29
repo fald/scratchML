@@ -11,13 +11,27 @@ from config import *
 
 class LinearRegression:
     # Class variables
-    # Instance variables
+
+    def __init__(self):
+        self.w = None
+        self.b = None
     
-    def fit(self):
-        pass
+    def fit(self, X, y, init_random=False):
+        m, n = X.shape
+        w, b = self.init_weights(n, init_random)
+        self.w, self.b, _ = self.gradient_descent(X, y, w, b)
     
     def predict(self, X, w, b):
         return np.dot(X, w) + b
+    
+    def init_weights(self, n, random=False):
+        if not random:
+            w = np.zeros(n)
+            b = 0
+        else:
+            # TODO: This branch
+            pass
+        return w, b
     
     def MSE(self, X, y, w, b):        
         m = X.shape[0]
