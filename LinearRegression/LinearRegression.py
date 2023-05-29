@@ -28,8 +28,12 @@ class LinearRegression:
         return mse
     
     def compute_gradient(self, X, y, w, b):
-        pass
-    
+        m = X.shape[0]
+        err = np.transpose(self.predict(X, w, b) - y) # 1xm
+        dj_db = np.sum(err) / m
+        dj_dw = np.dot(np.sum(err), X) / m
+        return dj_db, dj_dw
+            
     def gradient_descent(self):
         pass
     
